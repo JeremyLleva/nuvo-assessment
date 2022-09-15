@@ -5,21 +5,18 @@ import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
 
 import './styles.css';
 
+//Component function to determine how many stars to fill and half-fill for rating
 const StarRow = ({rating}) => {
-    let starArray = []
-    console.log(rating)
-    while(rating > 0){
-        console.log(rating)
+    let starArray = [];
+    for(let i = 0; i < 5; i++){
         if(rating >= 1){
-            rating--
             starArray.push(1)
-        }else if (rating > 0.5){
-            rating--
+        }else if(rating >= 0.5){
             starArray.push(0.5)
+        }else{
+            starArray.push(0)
         }
-    }
-    while(starArray.length < 5){
-        starArray.push(0)
+        rating--;
     }
     let starRow = starArray.map((value) => {
         if(value === 1){     
@@ -46,7 +43,7 @@ const ProductDescription = ({product}) => {
             <div className='item-description'>{product.description}</div>
             <div className='star-container'>
                 <StarRow rating={product.rating.rate} />
-                <div style={{fontSize: 12, marginLeft: 5}}>{` ${product.rating.count}`}</div>
+                <div style={{fontSize: 12, marginLeft: 5}}>{` (${product.rating.count})`}</div>
             </div>
             <button className="add-to-cart"> Add to Cart</button>
         </div>
