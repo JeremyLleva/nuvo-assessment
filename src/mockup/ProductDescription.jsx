@@ -18,18 +18,18 @@ const StarRow = ({rating}) => {
         }
         rating--;
     }
-    let starRow = starArray.map((value) => {
+    let starRow = starArray.map((value, index) => {
         if(value === 1){     
             return (         
-                <FontAwesomeIcon className="star-filled" icon={ faStar } />
+                <FontAwesomeIcon key={index} className="star-filled" icon={ faStar } />
             );
         }else if(value === 0.5){
             return (         
-                <FontAwesomeIcon className="star-filled" icon={ faStarHalfStroke } />
+                <FontAwesomeIcon key={index} className="star-filled" icon={ faStarHalfStroke } />
             );
         }else{
             return (         
-                <FontAwesomeIcon className="star-filled" icon={ faStarOutline } />
+                <FontAwesomeIcon key={index} className="star-filled" icon={ faStarOutline } />
             );
         }
     })
@@ -39,7 +39,8 @@ const StarRow = ({rating}) => {
 const ProductDescription = ({product}) => {
     return(
         <div className='description-container'>
-            <div className='item-price'>${product.price}</div>
+            <div className='product-title'>{product.title}</div>
+            <div className='item-price'>${product.price.toFixed(2)}</div>
             <div className='item-description'>{product.description}</div>
             <div className='star-container'>
                 <StarRow rating={product.rating.rate} />
