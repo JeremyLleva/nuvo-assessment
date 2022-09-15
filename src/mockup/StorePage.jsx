@@ -3,7 +3,7 @@ import axios from 'axios';
 import ProductList from './ProductList';
 import ProductDescription from './ProductDescription';
 
-import './styles.css';
+import './storePage.css';
 
 const StorePage = () => {
     const [activeProduct, setActiveProduct] = useState(0)

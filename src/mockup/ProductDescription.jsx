@@ -3,7 +3,7 @@ import { faStar as faStarOutline } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
 
-import './styles.css';
+import './productDescription.css';
 
 //Component function to determine how many stars to fill and half-fill for rating
 const StarRow = ({rating}) => {
